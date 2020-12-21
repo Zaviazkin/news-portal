@@ -25,9 +25,9 @@ app.use(bodyParser.json());
 app.use("/api", router);
 const connectionString1 = "	postgres://nqigpuly:vdwmz4ad0leRW4S7Ow7UxCzKuUiHyAF2@suleiman.db.elephantsql.com:5432/nqigpuly"
 
-const pool = new Pool({
-  connectionString: `${process.env.connectionString}`
-});
+// const pool = new Pool({
+//   connectionString: `${process.env.connectionString}`
+// });
 app.use('/upload', express.static('upload'));
 
 async function startApp() {
