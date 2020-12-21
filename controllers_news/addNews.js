@@ -51,7 +51,7 @@ async function addNews(req, res) {
           content,
           likeId.rows[0]["currval"],
           viewsId.rows[0]["currval"],
-          `http://localhost:3030/upload/${nameFile}`,
+          `https://gipgipnews.herokuapp.com/upload/${nameFile}`,
         ]
       );
       const newsInfo = await client.query(
