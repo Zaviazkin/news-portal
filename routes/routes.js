@@ -33,12 +33,12 @@ router.delete("/news", timeMiddleware, auth, dropAllNews);
 router.patch("/news/:id", timeMiddleware, auth, setOneNews);
 router.get("/news/:id", timeMiddleware, getOneNews);
 router.post("/add-news", timeMiddleware, auth, addNews);
-router.get("/likes/:id", timeMiddleware, auth, getLikesCount);
-router.get("/views/:id", timeMiddleware, auth, getViewsCount);
+router.get("/likes/:id", timeMiddleware, getLikesCount);
+router.get("/views/:id", timeMiddleware, getViewsCount);
 
 
 router.post("/forget-password", timeMiddleware, forgetPassword, main);
-router.get("/user/:id", timeMiddleware, auth, getOneUser);
+router.get("/user/:id", timeMiddleware, getOneUser);
 router.post(
   "/add-user",
   [
@@ -49,10 +49,10 @@ router.post(
   ],
   createUser
 );
-router.get("/users", timeMiddleware, auth, getAllUsers);
+router.get("/users", timeMiddleware, getAllUsers);
 
 router.post("/add-like", timeMiddleware, auth, addLike);
-router.get("/news-liked/:id", timeMiddleware, auth, getUsersId);
+router.get("/news-liked/:id", timeMiddleware, getUsersId);
 
 router.post(
   "/login",
