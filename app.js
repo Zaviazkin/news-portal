@@ -23,16 +23,11 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api", router);
-const connectionString1 = "	postgres://nqigpuly:vdwmz4ad0leRW4S7Ow7UxCzKuUiHyAF2@suleiman.db.elephantsql.com:5432/nqigpuly"
 
-// const pool = new Pool({
-//   connectionString: `${process.env.connectionString}`
-// });
 app.use('/upload', express.static('upload'));
 
 async function startApp() {
   try {
-     await pool.connect();
     app.listen(3030, () => {
       console.log(`app started`);
     });
@@ -43,6 +38,5 @@ async function startApp() {
     console.log("Hello epta");
   }
 }
-module.exports={pool}
 startApp();
  
