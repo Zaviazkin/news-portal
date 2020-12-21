@@ -1,8 +1,15 @@
 const { Pool, Client } = require("pg");
+// const pool = new Pool({
+//   connectionString: `${process.env.connectionString}`
+// });
 const pool = new Pool({
-  connectionString: `${process.env.connectionString}`
-});
-
+  user: 'nqigpuly',
+  host: 'suleiman.db.elephantsql.com',
+  database: 'nqigpuly',
+  password: 'vdwmz4ad0leRW4S7Ow7UxCzKuUiHyAF2',
+  port: 5432,
+})
+// connectionString = 'postgres://nqigpuly:vdwmz4ad0leRW4S7Ow7UxCzKuUiHyAF2@suleiman.db.elephantsql.com:5432/nqigpuly'
 async function getAllNews(req, res) {
   (async () => {
     const client = await pool.connect();
