@@ -1,9 +1,9 @@
 const { Pool, Client } = require("pg");
 
+const pool = new Pool({
+  connectionString: `${process.env.connectionString}`
+});
 
-  const pool = new Pool({
-    connectionString: 'postgres://nqigpuly:vdwmz4ad0leRW4S7Ow7UxCzKuUiHyAF2@suleiman.db.elephantsql.com:5432/nqigpuly'
-  });
 async function addNews(req, res) {
   req.requestTime = new Date().toLocaleString({
     timeZone: "Asia/Bishkek",

@@ -8,8 +8,8 @@ async function main(req, res) {
     port: 465,
     secure: true,
     auth: {
-        user: 'ggnewskg@gmail.com',
-        pass: '1236zzzz',
+        user: process.env.user,
+        pass: process.env.pass,
       },
     // tls:{
     //     rejectUnauthorized:false

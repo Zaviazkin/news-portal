@@ -4,7 +4,7 @@ const { validationResult } = require("express-validator");
 const { Pool, Client } = require("pg");
 
 const pool = new Pool({
-  connectionString: 'postgres://nqigpuly:vdwmz4ad0leRW4S7Ow7UxCzKuUiHyAF2@suleiman.db.elephantsql.com:5432/nqigpuly'
+  connectionString: `${process.env.connectionString}`
 });
 
 async function forgetPassword(req, res, next) {
