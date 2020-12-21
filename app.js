@@ -28,7 +28,7 @@ app.use('/upload', express.static('upload'));
 
 async function startApp() {
   try {
-    app.listen(3030, () => {
+    app.listen(process.env.PORT || 3030, () => {
       console.log(`app started`);
     });
   } catch (e) {
