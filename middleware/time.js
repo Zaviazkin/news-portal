@@ -8,4 +8,3 @@ const timeMiddleware = function (req, res, next) {
   module.exports = {
       timeMiddleware
   }
-
