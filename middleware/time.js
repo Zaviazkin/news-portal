@@ -1,8 +1,8 @@
 const timeMiddleware = function (req, res, next) {
-    req.requestTime = new Date().toLocaleString({
-      timeZone: "Asia/Bishkek",
-      timeZoneName: "short",
-    });
+  let time = new Date()
+  let tima = tim.getHours()
+ time.setHours(tima+6)
+    req.requestTime = time
     next();
   };
   module.exports = {

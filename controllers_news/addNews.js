@@ -5,10 +5,7 @@ const pool = new Pool({
 });
 
 async function addNews(req, res) {
-  const time = new Date().toLocaleString({
-    timeZone: "Asia/Bishkek",
-    timeZoneName: "short",
-  });
+  const time = req.requestTime;
   const { author, content, title } = req.body;
   const filedata = req.file;
   let nameFile = "ggnews.jpg";
