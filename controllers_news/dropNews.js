@@ -11,6 +11,7 @@ async function dropOneNews(req, res) {
     const client = await pool.connect();
     try {
       const count = await client.query(`select likes_id from news where news_id=${id}`);
+      console.log(count.rows[0]);
       await client.query(`DELETE FROM news WHERE news_id =${id}`);
       await client.query(`DELETE FROM likes_to_users WHERE like_id=${id}`)
       await client.query(`DELETE FROM likes WHERE likes_id =${count.rows[0]}`);
