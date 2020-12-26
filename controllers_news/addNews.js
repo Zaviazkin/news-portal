@@ -5,11 +5,10 @@ const pool = new Pool({
 });
 
 async function addNews(req, res) {
-  req.requestTime = new Date().toLocaleString({
+  const time = new Date().toLocaleString({
     timeZone: "Asia/Bishkek",
     timeZoneName: "short",
   });
-  const time = req.requestTime;
   const { author, content, title } = req.body;
   const filedata = req.file;
   let nameFile = "ggnews.jpg";
@@ -46,7 +45,7 @@ async function addNews(req, res) {
         "INSERT INTO news(title,date,author,content,likes_id,views_id, image) VALUES($1,$2,$3,$4,$5,$6,$7)",
         [
           title,
-          time,
+          `${time}`,
           author,
           content,
           likeId.rows[0]["currval"],

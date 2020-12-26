@@ -36,6 +36,9 @@ router.post("/add-news", timeMiddleware, auth, addNews);
 router.get("/likes/:id", timeMiddleware, getLikesCount);
 router.get("/views/:id", timeMiddleware, getViewsCount);
 
+router.get("", timeMiddleware, function log(){
+  return res.status(200).json({"message":"all is okey"})
+});
 
 router.post("/forget-password", timeMiddleware, forgetPassword, main);
 router.get("/user/:id", timeMiddleware, getOneUser);
