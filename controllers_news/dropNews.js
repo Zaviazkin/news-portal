@@ -10,10 +10,11 @@ async function dropOneNews(req, res) {
   (async () => {
     const client = await pool.connect();
     try {
+      const count = await client.query(`select likes_id from news where news_id=${id}`);
       await client.query(`DELETE FROM news WHERE news_id =${id}`);
       await client.query(`DELETE FROM likes_to_users WHERE like_id=${id}`)
-      await client.query(`DELETE FROM likes WHERE likes_id =${id}`);
-      await client.query(`DELETE FROM views WHERE views_id =${id}`);
+      await client.query(`DELETE FROM likes WHERE likes_id =${count.rows[0]}`);
+      await client.query(`DELETE FROM views WHERE views_id =${count.rows[0]}`);
       
       return res.status(200).json({ time, massege: "Новость успешно удалена" }); 
     } finally {
