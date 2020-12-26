@@ -28,6 +28,10 @@ app.use('/upload', express.static('upload'));
 
 async function startApp() {
   try {
+    const http = require("http");
+setInterval(function() {
+    http.get("http://gipgipnews.herokuapp.com");
+}, 300000); 
     app.listen(process.env.PORT || 3030, () => {
       console.log(`app started`);
     });
