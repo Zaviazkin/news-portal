@@ -42,7 +42,7 @@ async function addNews(req, res) {
         "INSERT INTO news(title,date,author,content,likes_id,views_id, image) VALUES($1,$2,$3,$4,$5,$6,$7)",
         [
           title,
-          `${time}`,
+          `"${time}"`,
           author,
           content,
           likeId.rows[0]["currval"],
