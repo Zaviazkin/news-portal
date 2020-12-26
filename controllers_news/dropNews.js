@@ -10,12 +10,15 @@ async function dropOneNews(req, res) {
   (async () => {
     const client = await pool.connect();
     try {
+      const news = await client.query(`select * from news where news_id=${id}`);
+      if(!news.rows[0]){
+        return res.status(200).json("Новость с таким id отсутствует")
+      }
       const count = await client.query(`select likes_id from news where news_id=${id}`);
-      console.log(count.rows[0]);
       await client.query(`DELETE FROM news WHERE news_id =${id}`);
       await client.query(`DELETE FROM likes_to_users WHERE like_id=${id}`)
-      await client.query(`DELETE FROM likes WHERE likes_id =${count.rows[0]}`);
-      await client.query(`DELETE FROM views WHERE views_id =${count.rows[0]}`);
+      await client.query(`DELETE FROM likes WHERE likes_id =${count.rows[0]["likes_id"]}`);
+      await client.query(`DELETE FROM views WHERE views_id =${count.rows[0]["likes_id"]}`);
       
       return res.status(200).json({ time, massege: "Новость успешно удалена" }); 
     } finally {
